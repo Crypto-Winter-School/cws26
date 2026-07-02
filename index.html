@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Winter School 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14191F;
+    --parchment:#F6F1E4;
+    --brass:#C99A4B;
+    --cipher-green:#5B7065;
+    --white:#FFFFFF;
+    --ink-soft: rgba(20,25,31,0.62);
+    --hairline: rgba(20,25,31,0.16);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{ padding:20px 0 0; }
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+    border-bottom:1px solid var(--hairline);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.02em;
+    color:var(--ink-soft);
+  }
+  .topbar .mark{ color:var(--ink); font-weight:500; }
+  .topbar .mark span{ color:var(--brass); }
+  .topbar a{ text-decoration:underline; text-decoration-color:var(--hairline); }
+  .topbar a:hover{ text-decoration-color:var(--brass); }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding:84px 0 64px; }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--cipher-green);
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(40px, 6vw, 64px);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    margin:0 0 22px;
+  }
+  h1 em{ font-style:italic; color:var(--brass); }
+  .lede{
+    font-size:18px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    max-width:620px;
+    margin:0 0 32px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.02em;
+    padding:11px 18px;
+    border-radius:2px;
+    text-decoration:none;
+    transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary{ background:var(--ink); color:var(--parchment); }
+  .btn-primary:hover{ background:#262d36; transform:translateY(-1px); }
+  .btn-ghost{ border:1px solid var(--hairline); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--ink); transform:translateY(-1px); }
+  .btn-disabled{
+    opacity:0.55;
+    cursor:not-allowed;
+    pointer-events:none;
+    border:1px solid var(--hairline);
+    color:var(--ink-soft);
+  }
+
+  /* ---------- SECTIONS (shared) ---------- */
+  .section{ padding:64px 0; border-top:1px solid var(--hairline); }
+  .section h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:28px;
+    margin:0 0 8px;
+  }
+  .section-sub{
+    font-size:14px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    max-width:640px;
+    margin:0 0 32px;
+  }
+  .section p{
+    font-size:16px;
+    line-height:1.75;
+    color:var(--ink-soft);
+    max-width:640px;
+    margin:0 0 18px;
+  }
+
+  .tba{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.04em;
+    color:var(--brass);
+    border:1px solid var(--brass);
+    border-radius:2px;
+    padding:2px 6px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+
+  /* ---------- SCHEDULE ---------- */
+  .table-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .schedule-table{
+    width:100%;
+    min-width:640px;
+    border-collapse:collapse;
+    font-size:14px;
+  }
+  .schedule-table th, .schedule-table td{
+    padding:10px 12px;
+    border:1px solid var(--hairline);
+    text-align:left;
+    vertical-align:top;
+  }
+  .schedule-table th{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--ink-soft);
+    background:rgba(20,25,31,0.03);
+    white-space:nowrap;
+  }
+  .schedule-table td:first-child{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .schedule-table td.merged{
+    text-align:center;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+  .schedule-table td.empty{ color:var(--hairline); text-align:center; }
+
+  /* ---------- SPEAKERS ---------- */
+  .speakers-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:20px;
+  }
+  .speaker-card{
+    border:1px solid var(--hairline);
+    border-radius:2px;
+    padding:20px;
+  }
+  .speaker-card .name{
+    font-family:'Fraunces', serif;
+    font-size:18px;
+    margin:0 0 4px;
+  }
+  .speaker-card .affil{ font-size:13px; color:var(--ink-soft); margin:0 0 10px; }
+  .speaker-card .topic{ font-size:13px; color:var(--ink-soft); font-style:italic; margin:0; }
+
+  /* ---------- COMMITTEE ---------- */
+  .committee-list{ list-style:none; padding:0; margin:0; display:grid; gap:0; max-width:640px; }
+  .committee-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    padding:14px 0;
+    border-bottom:1px solid var(--hairline);
+    font-size:15px;
+  }
+  .committee-list li .role{
+    font-size:12px;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono', monospace;
+    white-space:nowrap;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--hairline);
+    padding:36px 0 48px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  footer a{ text-decoration:underline; text-decoration-color:var(--hairline); }
+  footer a:hover{ text-decoration-color:var(--brass); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="mark">CWS<span>:</span>/ crypto winter school · 2026</div>
+      <div><a href="https://crypto-winter-school.github.io/">← all editions</a></div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Crypto Winter School — 2026 edition</div>
+    <h1>Crypto Winter School <em>2026</em></h1>
+    <p class="lede">
+      Hosted by ISI Kolkata, the 2026 edition continues the series' focus on
+      symmetric-key cryptanalysis and post-quantum security. November 30 – December 4, 2026.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#registration">Register</a>
+      <a class="btn btn-ghost" href="#schedule">View schedule</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <h2>This edition</h2>
+    <p>
+      ISI Kolkata's Local Organizing Committee is finalizing the syllabus and
+      thematic focus for 2026, building on the founding edition's emphasis on
+      fault attacks, lattice-based cryptanalysis, and post-quantum primitives.
+      Full programme details will be published here as they're confirmed.
+      <span class="tba">TBA</span>
+    </p>
+  </div>
+</section>
+
+<section class="section" id="schedule">
+  <div class="wrap">
+    <h2>Schedule</h2>
+    <p class="section-sub">Tentative — subject to change as the programme is finalized.</p>
+    <div class="table-scroll">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Nov 30</th>
+            <th>Dec 1</th>
+            <th>Dec 2</th>
+            <th>Dec 3</th>
+            <th>Dec 4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>09:30–10:00</td>
+            <td class="merged" colspan="5">Registration &amp; tea with snacks</td>
+          </tr>
+          <tr>
+            <td>10:00–10:30</td>
+            <td>Inauguration</td>
+            <td>Talks by group leaders</td>
+            <td>Invited talk</td>
+            <td>Invited talk</td>
+            <td>Invited talk</td>
+          </tr>
+          <tr>
+            <td>10:30–11:30</td>
+            <td>Special talk</td>
+            <td>Talks by group leaders</td>
+            <td>Invited talk</td>
+            <td>Invited talk</td>
+            <td>Invited talk</td>
+          </tr>
+          <tr>
+            <td>11:30–12:00</td>
+            <td class="merged" colspan="5">Tea / coffee break</td>
+          </tr>
+          <tr>
+            <td>12:00–13:30</td>
+            <td>Invited talk</td>
+            <td>Talks by group leaders</td>
+            <td>Group discussion</td>
+            <td>Group discussion</td>
+            <td>Group discussion</td>
+          </tr>
+          <tr>
+            <td>13:30–15:00</td>
+            <td class="merged" colspan="5">Lunch</td>
+          </tr>
+          <tr>
+            <td>15:00–16:30</td>
+            <td>Invited talk</td>
+            <td>Group discussion</td>
+            <td>Group discussion</td>
+            <td>Group discussion</td>
+            <td>Group discussion</td>
+          </tr>
+          <tr>
+            <td>16:30–17:00</td>
+            <td class="merged" colspan="5">Tea / coffee break</td>
+          </tr>
+          <tr>
+            <td>17:00–18:00</td>
+            <td>Invited talk</td>
+            <td>Group discussion</td>
+            <td>Group discussion</td>
+            <td>Group discussion</td>
+            <td>Group discussion</td>
+          </tr>
+          <tr>
+            <td>19:00–20:00</td>
+            <td class="empty">–</td>
+            <td class="empty">–</td>
+            <td class="empty">–</td>
+            <td>Cultural program?</td>
+            <td>Closing remarks</td>
+          </tr>
+          <tr>
+            <td>20:30–22:30</td>
+            <td class="empty">–</td>
+            <td class="empty">–</td>
+            <td class="empty">–</td>
+            <td>Gala dinner</td>
+            <td class="empty">–</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="speakers">
+  <div class="wrap">
+    <h2>Speakers</h2>
+    <p class="section-sub">Confirmed speakers will appear here as the programme is finalized.</p>
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <p class="name">TBA</p>
+        <p class="affil">Affiliation TBA</p>
+        <p class="topic">Talk title TBA</p>
+      </div>
+      <div class="speaker-card">
+        <p class="name">TBA</p>
+        <p class="affil">Affiliation TBA</p>
+        <p class="topic">Talk title TBA</p>
+      </div>
+      <div class="speaker-card">
+        <p class="name">TBA</p>
+        <p class="affil">Affiliation TBA</p>
+        <p class="topic">Talk title TBA</p>
+      </div>
+      <div class="speaker-card">
+        <p class="name">TBA</p>
+        <p class="affil">Affiliation TBA</p>
+        <p class="topic">Talk title TBA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="venue">
+  <div class="wrap">
+    <h2>Venue</h2>
+    <p>
+      Indian Statistical Institute, Kolkata.
+      <span class="tba">Full address &amp; campus map — TBA</span>
+    </p>
+  </div>
+</section>
+
+<section class="section" id="registration">
+  <div class="wrap">
+    <h2>Registration</h2>
+    <p>Registration will open closer to the event date. Check back here for updates.</p>
+    <a class="btn btn-disabled" href="#" aria-disabled="true">Registration opening soon</a>
+  </div>
+</section>
+
+<section class="section" id="committee">
+  <div class="wrap">
+    <h2>Organizing committee</h2>
+    <p class="section-sub">Local Organizing Committee, ISI Kolkata.</p>
+    <ul class="committee-list">
+      <li><span>TBA</span> <span class="role">Chair</span></li>
+      <li><span>TBA</span> <span class="role">Co-chair</span></li>
+      <li><span>TBA</span> <span class="role">Local arrangements</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; width:100%;">
+    <div>Crypto Winter School 2026 — hosted by ISI Kolkata.</div>
+    <div><a href="https://crypto-winter-school.github.io/">← Back to all editions</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
