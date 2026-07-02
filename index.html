@@ -204,6 +204,28 @@
   .speaker-card .affil{ font-size:13px; color:var(--ink-soft); margin:0 0 10px; }
   .speaker-card .topic{ font-size:13px; color:var(--ink-soft); font-style:italic; margin:0; }
 
+  /* ---------- VENUE ---------- */
+  .venue-plate{
+    margin:0 0 28px;
+    border:1px solid var(--hairline);
+    padding:6px;
+    background:var(--white);
+    max-width:640px;
+  }
+  .venue-plate img{
+    display:block;
+    width:100%;
+    height:auto;
+    filter:sepia(12%) saturate(85%) contrast(1.02);
+  }
+  .venue-plate figcaption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+    color:var(--ink-soft);
+    padding:10px 4px 2px;
+  }
+
   /* ---------- COMMITTEE ---------- */
   .committee-list{ list-style:none; padding:0; margin:0; display:grid; gap:0; max-width:640px; }
   .committee-list li{
@@ -404,6 +426,10 @@
 <section class="section" id="venue">
   <div class="wrap">
     <h2>Venue</h2>
+    <figure class="venue-plate">
+      <img src="isi-kolkata.jpg" alt="Indian Statistical Institute, Kolkata campus building beside a lake, framed by palm and mango trees" loading="lazy" width="1600" height="625">
+      <figcaption>Indian Statistical Institute, Kolkata</figcaption>
+    </figure>
     <p>
       Indian Statistical Institute, Kolkata.
       <span class="tba">Full address &amp; campus map — TBA</span>
