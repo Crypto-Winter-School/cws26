@@ -179,23 +179,45 @@
   .schedule-table td.empty{ color:var(--hairline); text-align:center; }
 
   /* ---------- SPEAKERS ---------- */
+  .speaker-group-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin:36px 0 16px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--hairline);
+  }
   .speakers-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));
+    gap:16px;
   }
   .speaker-card{
     border:1px solid var(--hairline);
     border-radius:2px;
-    padding:20px;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .speaker-photo{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:12px;
+    border:1px solid var(--hairline);
+    background:var(--hairline);
   }
   .speaker-card .name{
     font-family:'Fraunces', serif;
-    font-size:18px;
+    font-size:16px;
     margin:0 0 4px;
   }
-  .speaker-card .affil{ font-size:13px; color:var(--ink-soft); margin:0 0 10px; }
-  .speaker-card .topic{ font-size:13px; color:var(--ink-soft); font-style:italic; margin:0; }
+  .speaker-card .affil{ font-size:12px; color:var(--ink-soft); margin:0; font-family:'IBM Plex Mono', monospace; }
 
   /* ---------- VENUE ---------- */
   .venue-plate{
@@ -408,29 +430,84 @@
 <section class="section" id="speakers">
   <div class="wrap">
     <h2>Speakers</h2>
-    <p class="section-sub">Confirmed speakers will appear here as the programme is finalized.</p>
+
+    <h3 class="speaker-group-title">Invited Speakers</h3>
     <div class="speakers-grid">
       <div class="speaker-card">
-        <p class="name">TBA</p>
-        <p class="affil">Affiliation TBA</p>
-        <p class="topic">Talk title TBA</p>
+        <img src="images/committee/nishanth-chandran.jpg" alt="Nishanth Chandran" class="speaker-photo">
+        <p class="name">Nishanth Chandran</p>
+        <p class="affil">Microsoft Research India</p>
       </div>
       <div class="speaker-card">
-        <p class="name">TBA</p>
-        <p class="affil">Affiliation TBA</p>
-        <p class="topic">Talk title TBA</p>
+        <img src="images/committee/bhavana-kanukurthi.jpg" alt="Bhavana Kanukurthi" class="speaker-photo">
+        <p class="name">Bhavana Kanukurthi</p>
+        <p class="affil">IISc Bangalore</p>
       </div>
       <div class="speaker-card">
-        <p class="name">TBA</p>
-        <p class="affil">Affiliation TBA</p>
-        <p class="topic">Talk title TBA</p>
+        <img src="images/committee/debdeep-mukhopadhyay.jpg" alt="Debdeep Mukhopadhyay" class="speaker-photo">
+        <p class="name">Debdeep Mukhopadhyay</p>
+        <p class="affil">IIT Kharagpur</p>
       </div>
       <div class="speaker-card">
-        <p class="name">TBA</p>
-        <p class="affil">Affiliation TBA</p>
-        <p class="topic">Talk title TBA</p>
+        <img src="images/committee/yashvanth-kondi.jpg" alt="Yashvanth Kondi" class="speaker-photo">
+        <p class="name">Yashvanth Kondi</p>
+        <p class="affil">Silence Laboratories</p>
       </div>
     </div>
+
+    <h3 class="speaker-group-title">Tutorial Speakers</h3>
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <img src="images/committee/ashish-choudhury.jpg" alt="Ashish Choudhury" class="speaker-photo">
+        <p class="name">Ashish Choudhury</p>
+        <p class="affil">IIIT Bangalore</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/committee/debrup-chakraborty.jpg" alt="Debrup Chakraborty" class="speaker-photo">
+        <p class="name">Debrup Chakraborty</p>
+        <p class="affil">ISI Kolkata</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/committee/mridul-nandi.jpg" alt="Mridul Nandi" class="speaker-photo">
+        <p class="name">Mridul Nandi</p>
+        <p class="affil">ISI Kolkata</p>
+      </div>
+    </div>
+
+    <h3 class="speaker-group-title">Group Leaders</h3>
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <img src="images/committee/ashish-choudhury.jpg" alt="Ashish Choudhury" class="speaker-photo">
+        <p class="name">Ashish Choudhury</p>
+        <p class="affil">IIIT Bangalore</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/committee/satrajit-ghosh.jpg" alt="Satrajit Ghosh" class="speaker-photo">
+        <p class="name">Satrajit Ghosh</p>
+        <p class="affil">IIT Kharagpur</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/committee/ashrujit-ghoshal.jpg" alt="Ashrujit Ghoshal" class="speaker-photo">
+        <p class="name">Ashrujit Ghoshal</p>
+        <p class="affil">IIT Madras</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/committee/avijit-dutta.jpg" alt="Avijit Dutta" class="speaker-photo">
+        <p class="name">Avijit Dutta</p>
+        <p class="affil">TCG CREST</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/committee/pratyay-mukherjee.jpg" alt="Pratyay Mukherjee" class="speaker-photo">
+        <p class="name">Pratyay Mukherjee</p>
+        <p class="affil">Hashgraph</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/committee/dhiman-saha.jpg" alt="Dhiman Saha" class="speaker-photo">
+        <p class="name">Dhiman Saha</p>
+        <p class="affil">IIT Bhilai</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
