@@ -143,40 +143,109 @@
   }
 
   /* ---------- SCHEDULE ---------- */
-  .table-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
-  .schedule-table{
-    width:100%;
-    min-width:640px;
-    border-collapse:collapse;
-    font-size:14px;
+  .sched-outer{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .sched-grid{
+    display:grid;
+    grid-template-columns:68px repeat(5,1fr);
+    gap:3px;
+    min-width:540px;
   }
-  .schedule-table th, .schedule-table td{
-    padding:10px 12px;
-    border:1px solid var(--hairline);
-    text-align:left;
-    vertical-align:top;
-  }
-  .schedule-table th{
+  .sched-th{
     font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
+    font-size:10px;
+    letter-spacing:0.06em;
     text-transform:uppercase;
-    letter-spacing:0.04em;
     color:var(--ink-soft);
-    background:rgba(20,25,31,0.03);
-    white-space:nowrap;
-  }
-  .schedule-table td:first-child{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    color:var(--ink-soft);
-    white-space:nowrap;
-  }
-  .schedule-table td.merged{
     text-align:center;
+    padding:6px 8px 10px;
+    border-bottom:2px solid var(--brass);
+  }
+  .sched-th .day{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:18px;
+    text-transform:none;
+    letter-spacing:0;
+    color:var(--ink);
+    margin-bottom:2px;
+  }
+  .sched-band{
+    grid-column:1/-1;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:7px 10px;
+    background:rgba(20,25,31,0.05);
+    border-radius:2px;
+    font-size:13px;
     color:var(--ink-soft);
     font-style:italic;
   }
-  .schedule-table td.empty{ color:var(--hairline); text-align:center; }
+  .sched-band .bt{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    font-style:normal;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .sched-gap{
+    grid-column:1/-1;
+    height:18px;
+    display:flex;
+    align-items:center;
+  }
+  .sched-gap::after{
+    content:'';
+    display:block;
+    width:100%;
+    border-top:1px dashed var(--hairline);
+  }
+  .sched-time{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    color:var(--ink-soft);
+    padding:8px 6px 8px 0;
+    white-space:nowrap;
+    display:flex;
+    align-items:flex-start;
+    line-height:1.3;
+  }
+  .ev{
+    border-radius:2px;
+    padding:8px 10px;
+    border-left:3px solid transparent;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    font-size:13px;
+    line-height:1.3;
+  }
+  .ev-cat{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    opacity:0.6;
+  }
+  .ev-title{ font-weight:500; }
+  .span2{ grid-row:span 2; }
+  .ev--plenary{ background:rgba(201,154,75,0.18); border-left-color:var(--brass); }
+  .ev--invited{ background:rgba(201,154,75,0.09); border-left-color:rgba(201,154,75,0.5); }
+  .ev--tutorial{ background:rgba(91,112,101,0.13); border-left-color:var(--cipher-green); }
+  .ev--group{ background:rgba(20,25,31,0.04); border-left-color:rgba(20,25,31,0.15); }
+  .ev--social{ background:rgba(91,112,101,0.20); border-left-color:var(--cipher-green); }
+  .ev--empty{ color:var(--hairline); align-items:center; justify-content:center; }
+  .sched-legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 20px;
+    margin-bottom:24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+  }
+  .lg-item{ display:flex; align-items:center; gap:7px; }
+  .lg-sw{ width:12px; height:12px; border-radius:2px; flex-shrink:0; }
 
   /* ---------- SPEAKERS ---------- */
   .speaker-group-title{
@@ -357,81 +426,122 @@
   <div class="wrap">
     <h2>Schedule</h2>
     <p class="section-sub">Tentative — subject to change as the programme is finalized.</p>
-    <div class="table-scroll">
-      <table class="schedule-table">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Nov 30</th>
-            <th>Dec 1</th>
-            <th>Dec 2</th>
-            <th>Dec 3</th>
-            <th>Dec 4</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>09:30–10:00</td>
-            <td class="merged" colspan="5">Registration &amp; tea with snacks</td>
-          </tr>
-          <tr>
-            <td>10:00–10:30</td>
-            <td>Inauguration</td>
-            <td rowspan="2">Talks by group leaders</td>
-            <td rowspan="2">Invited talk<br>Bhavana Kanukurthi &amp; Nishanth Chandran</td>
-            <td rowspan="2">Invited talk<br>Debdeep Mukhopadhyay &amp; Special Paper</td>
-            <td rowspan="2">Invited talk<br>Sikhar Patranabis &amp; Yashvanth Kondi</td>
-          </tr>
-          <tr>
-            <td>10:30–11:30</td>
-            <td>Special talk<br>Mridul Nandi</td>
-          </tr>
-          <tr>
-            <td>11:30–12:00</td>
-            <td class="merged" colspan="5">Tea / coffee break</td>
-          </tr>
-          <tr>
-            <td>12:00–13:30</td>
-            <td>Tutorial talk<br>Debrup Chakraborty</td>
-            <td>Group discussion</td>
-            <td>Group discussion</td>
-            <td>Group discussion</td>
-            <td>Group discussion</td>
-          </tr>
-          <tr>
-            <td>13:30–15:00</td>
-            <td class="merged" colspan="5">Lunch</td>
-          </tr>
-          <tr>
-            <td>15:00–16:30</td>
-            <td>Tutorial talk<br>Ashish Choudhury</td>
-            <td>Group discussion</td>
-            <td>Group discussion</td>
-            <td>Group discussion</td>
-            <td>Group discussion</td>
-          </tr>
-          <tr>
-            <td>16:30–17:00</td>
-            <td class="merged" colspan="5">Tea / coffee break</td>
-          </tr>
-          <tr>
-            <td>17:00–18:00</td>
-            <td>Group interaction</td>
-            <td>Group discussion</td>
-            <td>Group discussion</td>
-            <td>Group discussion</td>
-            <td>Group presentation</td>
-          </tr>
-          <tr>
-            <td>19:00–20:00</td>
-            <td class="empty">–</td>
-            <td class="empty">–</td>
-            <td class="empty">–</td>
-            <td>Gala dinner</td>
-            <td>Closing remarks</td>
-          </tr>
-        </tbody>
-      </table>
+
+    <div class="sched-legend">
+      <div class="lg-item"><div class="lg-sw" style="background:rgba(201,154,75,0.7)"></div>Plenary / Special</div>
+      <div class="lg-item"><div class="lg-sw" style="background:rgba(201,154,75,0.4)"></div>Invited talk</div>
+      <div class="lg-item"><div class="lg-sw" style="background:rgba(91,112,101,0.5)"></div>Tutorial</div>
+      <div class="lg-item"><div class="lg-sw" style="background:rgba(20,25,31,0.12)"></div>Group session</div>
+      <div class="lg-item"><div class="lg-sw" style="background:rgba(91,112,101,0.65)"></div>Social / Closing</div>
+    </div>
+
+    <div class="sched-outer">
+      <div class="sched-grid">
+
+        <!-- Day headers -->
+        <div></div>
+        <div class="sched-th"><span class="day">Nov 30</span>Mon</div>
+        <div class="sched-th"><span class="day">Dec 1</span>Tue</div>
+        <div class="sched-th"><span class="day">Dec 2</span>Wed</div>
+        <div class="sched-th"><span class="day">Dec 3</span>Thu</div>
+        <div class="sched-th"><span class="day">Dec 4</span>Fri</div>
+
+        <!-- Registration -->
+        <div class="sched-band"><span class="bt">09:30–10:00</span>Registration &amp; tea with snacks</div>
+
+        <!-- 10:00–10:30 (Nov 30) / 10:00–11:30 merged (Dec 1–4) -->
+        <div class="sched-time">10:00–10:30</div>
+        <div class="ev ev--plenary">
+          <span class="ev-cat">Opening</span>
+          <span class="ev-title">Inauguration</span>
+        </div>
+        <div class="ev ev--invited span2">
+          <span class="ev-cat">Talks</span>
+          <span class="ev-title">Talks by group leaders</span>
+        </div>
+        <div class="ev ev--invited span2">
+          <span class="ev-cat">Invited talk</span>
+          <span class="ev-title">Bhavana Kanukurthi &amp; Nishanth Chandran</span>
+        </div>
+        <div class="ev ev--invited span2">
+          <span class="ev-cat">Invited talk</span>
+          <span class="ev-title">Debdeep Mukhopadhyay &amp; Special Paper</span>
+        </div>
+        <div class="ev ev--invited span2">
+          <span class="ev-cat">Invited talk</span>
+          <span class="ev-title">Sikhar Patranabis &amp; Yashvanth Kondi</span>
+        </div>
+
+        <!-- 10:30–11:30 (Nov 30 only — Dec 1–4 covered by span2 above) -->
+        <div class="sched-time">10:30–11:30</div>
+        <div class="ev ev--plenary">
+          <span class="ev-cat">Special talk</span>
+          <span class="ev-title">Mridul Nandi</span>
+        </div>
+
+        <!-- Tea break -->
+        <div class="sched-band"><span class="bt">11:30–12:00</span>Tea / coffee break</div>
+
+        <!-- 12:00–13:30 -->
+        <div class="sched-time">12:00–13:30</div>
+        <div class="ev ev--tutorial">
+          <span class="ev-cat">Tutorial</span>
+          <span class="ev-title">Debrup Chakraborty</span>
+        </div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+
+        <!-- Lunch -->
+        <div class="sched-band"><span class="bt">13:30–15:00</span>Lunch</div>
+
+        <!-- 15:00–16:30 -->
+        <div class="sched-time">15:00–16:30</div>
+        <div class="ev ev--tutorial">
+          <span class="ev-cat">Tutorial</span>
+          <span class="ev-title">Ashish Choudhury</span>
+        </div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+
+        <!-- Tea break -->
+        <div class="sched-band"><span class="bt">16:30–17:00</span>Tea / coffee break</div>
+
+        <!-- 17:00–18:00 -->
+        <div class="sched-time">17:00–18:00</div>
+        <div class="ev ev--group">
+          <span class="ev-cat">Group</span>
+          <span class="ev-title">Group interaction</span>
+        </div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+        <div class="ev ev--group"><span class="ev-cat">Group</span><span class="ev-title">Group discussion</span></div>
+        <div class="ev ev--group">
+          <span class="ev-cat">Group</span>
+          <span class="ev-title">Group presentation</span>
+        </div>
+
+        <!-- Evening gap -->
+        <div class="sched-gap"></div>
+
+        <!-- 19:00–20:00 -->
+        <div class="sched-time">19:00–20:00</div>
+        <div class="ev ev--empty">–</div>
+        <div class="ev ev--empty">–</div>
+        <div class="ev ev--empty">–</div>
+        <div class="ev ev--social">
+          <span class="ev-cat">Social</span>
+          <span class="ev-title">Gala dinner</span>
+        </div>
+        <div class="ev ev--social">
+          <span class="ev-cat">Closing</span>
+          <span class="ev-title">Closing remarks</span>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
