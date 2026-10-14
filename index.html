@@ -272,6 +272,27 @@
     white-space:nowrap;
   }
 
+  /* ---------- PARTICIPANTS ---------- */
+  .participant-list{ list-style:decimal; padding-left:24px; margin:0 0 8px; }
+  .participant-list li{
+    padding:5px 0;
+    font-size:15px;
+    border-bottom:1px solid var(--hairline);
+  }
+  .participant-list li:last-child{ border-bottom:none; }
+  .participant-cols{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:0 40px;
+  }
+  .participant-cols .participant-list{ margin-bottom:0; }
+  .participant-area{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    margin-left:6px;
+  }
+
   /* ---------- FOOTER ---------- */
   footer{
     border-top:1px solid var(--hairline);
@@ -561,6 +582,111 @@
         <span class="role">TCG CREST</span>
       </li>
     </ul>
+  </div>
+</section>
+
+<section class="section" id="participants">
+  <div class="wrap">
+    <h2>Participants</h2>
+    <p class="section-sub">CWS 2026 invitee list.</p>
+
+    <h3 class="speaker-group-title">Invited Speakers</h3>
+    <ol class="participant-list" start="1">
+      <li>Prof. Bhavana Kanukurthi</li>
+      <li>Dr. Nishanth Chandran</li>
+      <li>Dr. Ashish Choudhury</li>
+      <li>Prof. Debdeep Mukhopadhyay</li>
+      <li>Dr. Yashvanth Kondi</li>
+    </ol>
+
+    <h3 class="speaker-group-title">Group Leaders</h3>
+    <ol class="participant-list" start="6">
+      <li>Dr. Dhiman Saha <span class="participant-area">Cryptanalysis</span></li>
+      <li>Dr. Satrajit Ghosh</li>
+      <li>Dr. Pratyay Mukherjee</li>
+      <li>Dr. Avijit Dutta</li>
+      <li>Dr. Sikhar Patranabis <span class="participant-area">Post-quantum ZK</span></li>
+      <li>Dr. Ritam Bhaumik <span class="participant-area">Quantum</span></li>
+      <li>Dr. Ashrujit Ghoshal <span class="participant-area">IT-PIR</span></li>
+    </ol>
+
+    <h3 class="speaker-group-title">Invited Participants</h3>
+    <ol class="participant-list" start="13">
+      <li>Dr. Shibam Ghosh</li>
+      <li>Dr. Debasmita Chakraborty</li>
+      <li>Dr. Sahiba Suryawanshi</li>
+      <li>Dr. R. Kabaleeshwaran</li>
+      <li>Dr. Subhabrata Samajder</li>
+      <li>Dr. Subhra Mazumdar</li>
+      <li>Dr. Avishek Majumder</li>
+      <li>Dr. Mostafizar Rahman</li>
+      <li>Dr. Amit Jana</li>
+    </ol>
+
+    <h3 class="speaker-group-title">Participants</h3>
+    <div class="participant-cols">
+      <ol class="participant-list" start="22">
+        <li>Nikita Dey</li>
+        <li>Hrithik Nandi</li>
+        <li>Shreya Dey</li>
+        <li>Nikita Kiran</li>
+        <li>Mriganka Dey</li>
+        <li>Bishakha Sarkar</li>
+        <li>Barnima Ghosal</li>
+        <li>Md Alamgir Alam</li>
+        <li>Sajani Kundu</li>
+        <li>Md Sariful Molla</li>
+        <li>Biswajit Mandal</li>
+        <li>Debadatta Kar</li>
+        <li>Kunal Juneja</li>
+        <li>Tarunya Venkat</li>
+        <li>Supriyo Banerjee</li>
+        <li>Deepro Sarkar</li>
+        <li>R Dipak</li>
+        <li>Anup Kumar Kundu</li>
+        <li>Bivash Sarkar</li>
+      </ol>
+      <ol class="participant-list" start="41">
+        <li>Asmita Samanta</li>
+        <li>Abhinav Raj</li>
+        <li>Amlan Sinha</li>
+        <li>Sushmita Sarkar</li>
+        <li>Surajit Mandal</li>
+        <li>Arnidam Ghosh</li>
+        <li>Utkarsh Sahai</li>
+        <li>Ponmahesh Kumar</li>
+        <li>Fedal Castro</li>
+        <li>Chandri Vaishnavi</li>
+        <li>Dharani</li>
+        <li>Issa Baddour</li>
+        <li>Dixit Dutt Bohra</li>
+        <li>Manmohan Sahu</li>
+        <li>Ashutosh Mahanta</li>
+        <li>Jhelum Dhar</li>
+        <li>Riya Jana</li>
+        <li>Dilip Sau</li>
+        <li>Abhilash Kumar Das</li>
+      </ol>
+      <ol class="participant-list" start="60">
+        <li>Madhurima Das</li>
+        <li>Soumit Pal</li>
+        <li>Pousali Dey</li>
+        <li>Sreedhar Karmakar</li>
+        <li>Subha Kar</li>
+        <li>Gourab Saha</li>
+        <li>Anirban Karmakar</li>
+        <li>Bibhas Chandra Das</li>
+        <li>Abul Kalam</li>
+        <li>Ankana Bhar</li>
+        <li>Sudeshna Karmakar</li>
+        <li>Bibek Das</li>
+        <li>Abhradeep Rakshit</li>
+        <li>Jitendra Kulaste</li>
+        <li>Divyam Katiyar</li>
+        <li>Sandip Pal</li>
+        <li>Anit Kumar Ghosal</li>
+      </ol>
+    </div>
   </div>
 </section>
 
