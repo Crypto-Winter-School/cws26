@@ -342,6 +342,75 @@
   }
 
 
+  /* ---------- ORGANIZERS ---------- */
+  .crsi-stripe{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    background:rgba(45,26,78,0.07);
+    border:1px solid rgba(45,26,78,0.15);
+    border-radius:4px;
+    padding:14px 20px;
+    margin-bottom:40px;
+  }
+  .crsi-stripe img{
+    width:52px;
+    height:52px;
+    flex-shrink:0;
+  }
+  .crsi-stripe-text{
+    font-size:14px;
+    color:var(--ink);
+    line-height:1.45;
+  }
+  .crsi-stripe-text strong{
+    font-weight:600;
+  }
+  .crsi-stripe-label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:#2d1a4e;
+    opacity:0.7;
+    margin-bottom:4px;
+  }
+  .org-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:24px;
+  }
+  .org-card{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:24px;
+    border:1px solid var(--hairline);
+    border-top:3px solid var(--brass);
+    border-radius:4px;
+    background:#fff;
+  }
+  .org-logo{
+    width:80px;
+    height:80px;
+    flex-shrink:0;
+  }
+  .org-info-name{
+    font-family:'Fraunces', serif;
+    font-size:17px;
+    font-weight:500;
+    line-height:1.25;
+    margin-bottom:4px;
+  }
+  .org-info-loc{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+
   /* ---------- FOOTER ---------- */
   footer{
     border-top:1px solid var(--hairline);
@@ -686,9 +755,40 @@
   </div>
 </section>
 
+<section class="section" id="organizers">
+  <div class="wrap">
+    <h2>Organizers</h2>
+
+    <div class="crsi-stripe">
+      <img src="images/logos/crsi.svg" alt="CRSI logo" width="52" height="52">
+      <div class="crsi-stripe-text">
+        <span class="crsi-stripe-label">Annual Event</span>
+        CWS is an annual event of the <strong>Cryptology Research Society of India (CRSI)</strong>, the apex body promoting cryptology research and education across India.
+      </div>
+    </div>
+
+    <div class="org-grid">
+      <div class="org-card">
+        <img src="images/logos/isi-kolkata.svg" alt="ISI Kolkata logo" class="org-logo" width="80" height="80">
+        <div>
+          <div class="org-info-name">Indian Statistical Institute</div>
+          <div class="org-info-loc">Kolkata, West Bengal</div>
+        </div>
+      </div>
+      <div class="org-card">
+        <img src="images/logos/tcg-crest.svg" alt="TCG CREST logo" class="org-logo" style="width:120px; height:80px;" width="120" height="80">
+        <div>
+          <div class="org-info-name">TCG CREST</div>
+          <div class="org-info-loc">Kolkata, West Bengal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; width:100%;">
-    <div>Crypto Winter School 2026 — hosted by ISI Kolkata.</div>
+    <div>Crypto Winter School 2026 — an annual event of CRSI, hosted by ISI Kolkata &amp; TCG CREST.</div>
     <div><a href="https://crypto-winter-school.github.io/">← Back to all editions</a></div>
   </div>
 </footer>
