@@ -261,6 +261,8 @@
   .ev--group{ background:rgba(20,25,31,0.04); border-left-color:rgba(20,25,31,0.15); }
   .ev--social{ background:rgba(91,112,101,0.20); border-left-color:var(--cipher-green); }
   .ev--empty{ color:var(--hairline); align-items:center; justify-content:center; }
+  .ev-divider{ border-top:1px dashed rgba(201,154,75,0.45); margin:5px 0; }
+  .ev-talk{ display:flex; flex-direction:column; gap:2px; }
   .sched-legend{
     display:flex;
     flex-wrap:wrap;
@@ -504,7 +506,7 @@
 
     <div class="sched-legend">
       <div class="lg-item"><div class="lg-sw" style="background:rgba(201,154,75,0.7)"></div>Plenary / Special</div>
-      <div class="lg-item"><div class="lg-sw" style="background:rgba(201,154,75,0.4)"></div>Invited talk</div>
+      <div class="lg-item"><div class="lg-sw" style="background:rgba(201,154,75,0.4)"></div>Invited talk (45 min)</div>
       <div class="lg-item"><div class="lg-sw" style="background:rgba(91,112,101,0.5)"></div>Tutorial</div>
       <div class="lg-item"><div class="lg-sw" style="background:rgba(20,25,31,0.12)"></div>Group session</div>
       <div class="lg-item"><div class="lg-sw" style="background:rgba(91,112,101,0.65)"></div>Social / Closing</div>
@@ -535,16 +537,37 @@
           <span class="ev-title">Talks by group leaders</span>
         </div>
         <div class="ev ev--invited span2">
-          <span class="ev-cat">Invited talk</span>
-          <span class="ev-title">Bhavana Kanukurthi &amp; Nishanth Chandran</span>
+          <div class="ev-talk">
+            <span class="ev-cat">Invited talk · 45 min</span>
+            <span class="ev-title">Bhavana Kanukurthi</span>
+          </div>
+          <div class="ev-divider"></div>
+          <div class="ev-talk">
+            <span class="ev-cat">Invited talk · 45 min</span>
+            <span class="ev-title">Nishanth Chandran</span>
+          </div>
         </div>
         <div class="ev ev--invited span2">
-          <span class="ev-cat">Invited talk</span>
-          <span class="ev-title">Debdeep Mukhopadhyay &amp; Special Paper</span>
+          <div class="ev-talk">
+            <span class="ev-cat">Invited talk · 45 min</span>
+            <span class="ev-title">Debdeep Mukhopadhyay</span>
+          </div>
+          <div class="ev-divider"></div>
+          <div class="ev-talk">
+            <span class="ev-cat">Invited talk · 45 min</span>
+            <span class="ev-title">Special Paper</span>
+          </div>
         </div>
         <div class="ev ev--invited span2">
-          <span class="ev-cat">Invited talk</span>
-          <span class="ev-title">Sikhar Patranabis &amp; Yashvanth Kondi</span>
+          <div class="ev-talk">
+            <span class="ev-cat">Invited talk · 45 min</span>
+            <span class="ev-title">Sikhar Patranabis</span>
+          </div>
+          <div class="ev-divider"></div>
+          <div class="ev-talk">
+            <span class="ev-cat">Invited talk · 45 min</span>
+            <span class="ev-title">Yashvanth Kondi</span>
+          </div>
         </div>
 
         <!-- 10:30–11:30 (Nov 30 only — Dec 1–4 covered by span2 above) -->
@@ -606,11 +629,11 @@
         <div class="sched-time">19:00–20:00</div>
         <div class="ev ev--empty">–</div>
         <div class="ev ev--empty">–</div>
-        <div class="ev ev--empty">–</div>
         <div class="ev ev--social">
           <span class="ev-cat">Social</span>
           <span class="ev-title">Gala dinner</span>
         </div>
+        <div class="ev ev--empty">–</div>
         <div class="ev ev--social">
           <span class="ev-cat">Closing</span>
           <span class="ev-title">Closing remarks</span>
