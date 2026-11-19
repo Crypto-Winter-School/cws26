@@ -439,6 +439,41 @@
     color:var(--ink-soft);
   }
 
+  /* ---------- SPONSORS ---------- */
+  .sponsors-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:32px 40px;
+    align-items:center;
+    justify-content:center;
+    padding:12px 0;
+  }
+  .sponsor-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    text-align:center;
+  }
+  .sponsor-item img{
+    max-height:64px;
+    width:auto;
+    max-width:180px;
+    object-fit:contain;
+    filter:grayscale(15%);
+    transition:filter 0.2s;
+  }
+  .sponsor-item img:hover{ filter:grayscale(0%); }
+  .sponsor-name{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--ink-soft);
+    max-width:140px;
+    line-height:1.4;
+  }
+
   /* ---------- FOOTER ---------- */
   footer{
     border-top:1px solid var(--hairline);
@@ -835,6 +870,38 @@
           <div class="org-info-name">TCG CREST</div>
           <div class="org-info-loc">Kolkata, West Bengal</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sponsors">
+  <div class="wrap">
+    <h2>Sponsors</h2>
+    <div class="sponsors-grid">
+      <div class="sponsor-item">
+        <img src="images/logos/isi-kolkata.png" alt="ISI Kolkata" width="60" height="68">
+        <span class="sponsor-name">R. C. Bose Centre, ISI Kolkata</span>
+      </div>
+      <div class="sponsor-item">
+        <img src="images/logos/crsi.png" alt="CRSI" width="64" height="64" style="border-radius:50%;">
+        <span class="sponsor-name">Cryptology Research Society of India</span>
+      </div>
+      <div class="sponsor-item">
+        <img src="images/logos/tcg-crest.webp" alt="TCG CREST" width="160" height="57">
+        <span class="sponsor-name">TCG CREST</span>
+      </div>
+      <div class="sponsor-item">
+        <img src="images/logos/silence-labs.png" alt="Silence Laboratories" width="180" height="50">
+        <span class="sponsor-name">Silence Laboratories</span>
+      </div>
+      <div class="sponsor-item">
+        <img src="images/logos/drdo.png" alt="DRDO" width="64" height="64">
+        <span class="sponsor-name">DRDO</span>
+      </div>
+      <div class="sponsor-item">
+        <img src="images/logos/algobengal.png" alt="AlgoBengal Research Labs" width="130" height="101">
+        <span class="sponsor-name">AlgoBengal Research Labs</span>
       </div>
     </div>
   </div>
