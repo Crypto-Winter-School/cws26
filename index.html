@@ -750,14 +750,14 @@
     <h3 class="speaker-group-title">Invited Speakers</h3>
     <div class="speakers-grid">
       <div class="speaker-card">
-        <img src="images/committee/nishanth-chandran.jpg" alt="Nishanth Chandran" class="speaker-photo">
-        <p class="name">Nishanth Chandran</p>
-        <p class="affil">Microsoft Research India</p>
-      </div>
-      <div class="speaker-card">
         <img src="images/committee/bhavana-kanukurthi.jpg" alt="Bhavana Kanukurthi" class="speaker-photo">
         <p class="name">Bhavana Kanukurthi</p>
         <p class="affil">IISc Bangalore</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/committee/nishanth-chandran.jpg" alt="Nishanth Chandran" class="speaker-photo">
+        <p class="name">Nishanth Chandran</p>
+        <p class="affil">Microsoft Research India</p>
       </div>
       <div class="speaker-card">
         <img src="images/committee/debdeep-mukhopadhyay.jpg" alt="Debdeep Mukhopadhyay" class="speaker-photo">
@@ -765,55 +765,36 @@
         <p class="affil">IIT Kharagpur</p>
       </div>
       <div class="speaker-card">
-        <img src="images/committee/yashvanth-kondi.jpg" alt="Yashvanth Kondi" class="speaker-photo">
-        <p class="name">Yashvanth Kondi</p>
-        <p class="affil">Silence Laboratories</p>
-      </div>
-      <div class="speaker-card">
         <img src="images/committee/sikhar-patranabis.png" alt="Sikhar Patranabis" class="speaker-photo">
         <p class="name">Sikhar Patranabis</p>
         <p class="affil">IBM Research</p>
+      </div>
+      <div class="speaker-card">
+        <img src="images/committee/yashvanth-kondi.jpg" alt="Yashvanth Kondi" class="speaker-photo">
+        <p class="name">Yashvanth Kondi</p>
+        <p class="affil">Silence Laboratories</p>
       </div>
     </div>
 
     <h3 class="speaker-group-title">Tutorial Speakers</h3>
     <div class="speakers-grid" id="tutorial-cards">
-      <div class="speaker-card tab-card" data-panel="tut-ac" tabindex="0" role="button" aria-pressed="false">
-        <img src="images/committee/ashish-choudhury.jpg" alt="Ashish Choudhury" class="speaker-photo">
-        <p class="name">Ashish Choudhury</p>
-        <p class="affil">IIIT Bangalore</p>
+      <div class="speaker-card tab-card" data-panel="tut-mn" tabindex="0" role="button" aria-pressed="false">
+        <img src="images/committee/mridul-nandi.jpg" alt="Mridul Nandi" class="speaker-photo">
+        <p class="name">Mridul Nandi</p>
+        <p class="affil">ISI Kolkata</p>
       </div>
       <div class="speaker-card tab-card" data-panel="tut-dc" tabindex="0" role="button" aria-pressed="false">
         <img src="images/committee/debrup-chakraborty.jpg" alt="Debrup Chakraborty" class="speaker-photo">
         <p class="name">Debrup Chakraborty</p>
         <p class="affil">ISI Kolkata</p>
       </div>
-      <div class="speaker-card tab-card" data-panel="tut-mn" tabindex="0" role="button" aria-pressed="false">
-        <img src="images/committee/mridul-nandi.jpg" alt="Mridul Nandi" class="speaker-photo">
-        <p class="name">Mridul Nandi</p>
-        <p class="affil">ISI Kolkata</p>
+      <div class="speaker-card tab-card" data-panel="tut-ac" tabindex="0" role="button" aria-pressed="false">
+        <img src="images/committee/ashish-choudhury.jpg" alt="Ashish Choudhury" class="speaker-photo">
+        <p class="name">Ashish Choudhury</p>
+        <p class="affil">IIIT Bangalore</p>
       </div>
     </div>
 
-    <div class="talk-panel" id="tut-ac" hidden>
-      <div class="tp-byline">
-        <span class="tp-speaker">Ashish Choudhury</span>
-        <span class="tp-affil">IIIT Bangalore</span>
-      </div>
-      <p class="tp-title">Statistically Secure MPC with a Constant Overhead and Guaranteed Output Delivery</p>
-      <div class="tp-abstract">
-        <p>We study the feasibility of constant communication-overhead statistically-secure MPC tolerating malicious adversaries in the synchronous setting and guaranteed output delivery (GOD). We propose a protocol with <em>n</em> = 3<em>t</em> + 1 for SIMD circuits with a communication overhead of O(1) and round complexity O(D) for circuit depth D, where <em>n</em> is the number of parties and <em>t</em> is the maximum number of corruptions. This is the first MPC protocol with the above characteristics.</p>
-        <p>Our first technical contribution is a verifiable secret sharing (VSS) protocol that achieves constant per-secret overhead via two-dimensional packing. Our second contribution is a constant-overhead degree-reduction protocol that converts a high-degree packed sharing into a lower-degree packed sharing.</p>
-        <p>Joint work with Ivan Damgård (Aarhus University) and Arpita Patra, Shravani Patil (IISc Bangalore). To appear at TCC 2026.</p>
-      </div>
-    </div>
-    <div class="talk-panel" id="tut-dc" hidden>
-      <div class="tp-byline">
-        <span class="tp-speaker">Debrup Chakraborty</span>
-        <span class="tp-affil">ISI Kolkata</span>
-      </div>
-      <p class="tp-tba">Abstract to be announced.</p>
-    </div>
     <div class="talk-panel" id="tut-mn" hidden>
       <div class="tp-byline">
         <span class="tp-speaker">Mridul Nandi</span>
@@ -824,6 +805,25 @@
         <p>Goldreich, Goldwasser and Micali (GGM), in a seminal work (FOCS 1984; JACM 1986), showed how to construct pseudorandom functions from a pseudorandom generator using a proof technique known as <em>hybrid reduction</em>.</p>
         <p>In the first part of the talk, we formalise the hybrid reduction proof methodology. We then present an alternative proof for the GGM result that yields a better reduction bound.</p>
         <p>The hybrid reduction idea from GGM has been used widely — in Cascade (Bellare–Canetti–Krawczyk, FOCS 1996), HMAC (Bellare, Crypto 2006; JoC 2015), AMAC (Bellare–Bernstein–Tessaro, Eurocrypt 2016), MDP (Hirose–Park–Yun, Asiacrypt 2007; JoC 2012), and many others. As a side result, our approach yields improved security bounds (including in the multi-user setting) for all these constructions, and unifies their security proofs.</p>
+      </div>
+    </div>
+    <div class="talk-panel" id="tut-dc" hidden>
+      <div class="tp-byline">
+        <span class="tp-speaker">Debrup Chakraborty</span>
+        <span class="tp-affil">ISI Kolkata</span>
+      </div>
+      <p class="tp-tba">Abstract to be announced.</p>
+    </div>
+    <div class="talk-panel" id="tut-ac" hidden>
+      <div class="tp-byline">
+        <span class="tp-speaker">Ashish Choudhury</span>
+        <span class="tp-affil">IIIT Bangalore</span>
+      </div>
+      <p class="tp-title">Statistically Secure MPC with a Constant Overhead and Guaranteed Output Delivery</p>
+      <div class="tp-abstract">
+        <p>We study the feasibility of constant communication-overhead statistically-secure MPC tolerating malicious adversaries in the synchronous setting and guaranteed output delivery (GOD). We propose a protocol with <em>n</em> = 3<em>t</em> + 1 for SIMD circuits with a communication overhead of O(1) and round complexity O(D) for circuit depth D, where <em>n</em> is the number of parties and <em>t</em> is the maximum number of corruptions. This is the first MPC protocol with the above characteristics.</p>
+        <p>Our first technical contribution is a verifiable secret sharing (VSS) protocol that achieves constant per-secret overhead via two-dimensional packing. Our second contribution is a constant-overhead degree-reduction protocol that converts a high-degree packed sharing into a lower-degree packed sharing.</p>
+        <p>Joint work with Ivan Damgård (Aarhus University) and Arpita Patra, Shravani Patil (IISc Bangalore). To appear at TCC 2026.</p>
       </div>
     </div>
 
