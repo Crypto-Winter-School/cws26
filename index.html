@@ -316,69 +316,69 @@
   }
   .speaker-card .affil{ font-size:12px; color:var(--ink-soft); margin:0; font-family:'IBM Plex Mono', monospace; }
 
-  .talk-list{
-    margin-top:20px;
-    display:flex;
-    flex-direction:column;
-    gap:0;
+  /* tab cards */
+  .tab-card{
+    cursor:pointer;
+    transition:border-color 0.15s, background 0.15s, box-shadow 0.15s;
+    user-select:none;
   }
-  .talk-entry{
-    border-top:1px solid var(--hairline);
-    padding:16px 0;
+  .tab-card:hover{ border-color:rgba(201,154,75,0.55); }
+  .tab-card.tab-active{
+    border-top:3px solid var(--brass);
+    background:rgba(201,154,75,0.07);
+    box-shadow:0 2px 8px rgba(201,154,75,0.12);
   }
-  .talk-entry:last-child{ border-bottom:1px solid var(--hairline); }
-  .talk-entry-meta{
+  /* talk panel */
+  .talk-panel{
+    margin-top:8px;
+    border:1px solid var(--hairline);
+    border-top:3px solid var(--brass);
+    border-radius:2px;
+    padding:24px 28px 28px;
+    background:#fff;
+  }
+  .tp-byline{
     display:flex;
     align-items:baseline;
     gap:10px;
-    margin-bottom:8px;
+    margin-bottom:12px;
   }
-  .talk-entry-meta .t-speaker{
+  .tp-speaker{
     font-family:'Fraunces', serif;
     font-size:15px;
     font-weight:500;
     color:var(--ink);
   }
-  .talk-entry-meta .t-affil{
+  .tp-affil{
     font-family:'IBM Plex Mono', monospace;
     font-size:10px;
     text-transform:uppercase;
     letter-spacing:0.07em;
     color:var(--ink-soft);
   }
-  .talk-details summary{
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:14.5px;
+  .tp-title{
+    font-family:'Fraunces', serif;
+    font-size:18px;
     font-weight:500;
+    line-height:1.45;
+    margin:0 0 16px;
     color:var(--ink);
-    cursor:pointer;
-    list-style:none;
-    display:flex;
-    align-items:flex-start;
-    gap:9px;
-    line-height:1.5;
   }
-  .talk-details summary::-webkit-details-marker{ display:none; }
-  .talk-details summary::before{
-    content:"▶";
-    font-size:7px;
-    color:var(--brass);
-    flex-shrink:0;
-    margin-top:5px;
-    transition:transform 0.15s;
-  }
-  .talk-details[open] summary::before{ transform:rotate(90deg); }
-  .talk-abstract{
+  .tp-abstract{
     font-size:13.5px;
-    line-height:1.7;
+    line-height:1.72;
     color:var(--ink);
-    margin-top:12px;
-    padding-left:16px;
-    border-left:2px solid var(--hairline);
     max-width:72ch;
   }
-  .talk-abstract p{ margin:0 0 10px; }
-  .talk-abstract p:last-child{ margin-bottom:0; }
+  .tp-abstract p{ margin:0 0 10px; }
+  .tp-abstract p:last-child{ margin-bottom:0; }
+  .tp-tba{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin:0;
+    padding:8px 0;
+  }
 
   /* ---------- VENUE ---------- */
   .venue-plate{
@@ -777,38 +777,49 @@
     </div>
 
     <h3 class="speaker-group-title">Tutorial Speakers</h3>
-    <div class="speakers-grid">
-      <div class="speaker-card">
+    <div class="speakers-grid" id="tutorial-cards">
+      <div class="speaker-card tab-card" data-panel="tut-ac" tabindex="0" role="button" aria-pressed="false">
         <img src="images/committee/ashish-choudhury.jpg" alt="Ashish Choudhury" class="speaker-photo">
         <p class="name">Ashish Choudhury</p>
         <p class="affil">IIIT Bangalore</p>
       </div>
-      <div class="speaker-card">
+      <div class="speaker-card tab-card" data-panel="tut-dc" tabindex="0" role="button" aria-pressed="false">
         <img src="images/committee/debrup-chakraborty.jpg" alt="Debrup Chakraborty" class="speaker-photo">
         <p class="name">Debrup Chakraborty</p>
         <p class="affil">ISI Kolkata</p>
       </div>
-      <div class="speaker-card">
+      <div class="speaker-card tab-card" data-panel="tut-mn" tabindex="0" role="button" aria-pressed="false">
         <img src="images/committee/mridul-nandi.jpg" alt="Mridul Nandi" class="speaker-photo">
         <p class="name">Mridul Nandi</p>
         <p class="affil">ISI Kolkata</p>
       </div>
     </div>
-    <div class="talk-list">
-      <div class="talk-entry">
-        <div class="talk-entry-meta">
-          <span class="t-speaker">Ashish Choudhury</span>
-          <span class="t-affil">IIIT Bangalore</span>
-        </div>
-        <details class="talk-details">
-          <summary>Statistically Secure MPC with a Constant Overhead and Guaranteed Output Delivery</summary>
-          <div class="talk-abstract">
-            <p>We study the feasibility of constant communication-overhead statistically-secure MPC tolerating malicious adversaries in the synchronous setting and guaranteed output delivery (GOD). We propose a protocol with <em>n</em> = 3<em>t</em> + 1 for SIMD circuits with a communication overhead of O(1) and round complexity O(D) for circuit depth D, where <em>n</em> is the number of parties and <em>t</em> is the maximum number of corruptions. This is the first MPC protocol with the above characteristics.</p>
-            <p>Our first technical contribution is a verifiable secret sharing (VSS) protocol that achieves constant per-secret overhead via two-dimensional packing. Our second contribution is a constant-overhead degree-reduction protocol that converts a high-degree packed sharing into a lower-degree packed sharing.</p>
-            <p>Joint work with Ivan Damgård (Aarhus University) and Arpita Patra, Shravani Patil (IISc Bangalore). To appear at TCC 2026.</p>
-          </div>
-        </details>
+
+    <div class="talk-panel" id="tut-ac" hidden>
+      <div class="tp-byline">
+        <span class="tp-speaker">Ashish Choudhury</span>
+        <span class="tp-affil">IIIT Bangalore</span>
       </div>
+      <p class="tp-title">Statistically Secure MPC with a Constant Overhead and Guaranteed Output Delivery</p>
+      <div class="tp-abstract">
+        <p>We study the feasibility of constant communication-overhead statistically-secure MPC tolerating malicious adversaries in the synchronous setting and guaranteed output delivery (GOD). We propose a protocol with <em>n</em> = 3<em>t</em> + 1 for SIMD circuits with a communication overhead of O(1) and round complexity O(D) for circuit depth D, where <em>n</em> is the number of parties and <em>t</em> is the maximum number of corruptions. This is the first MPC protocol with the above characteristics.</p>
+        <p>Our first technical contribution is a verifiable secret sharing (VSS) protocol that achieves constant per-secret overhead via two-dimensional packing. Our second contribution is a constant-overhead degree-reduction protocol that converts a high-degree packed sharing into a lower-degree packed sharing.</p>
+        <p>Joint work with Ivan Damgård (Aarhus University) and Arpita Patra, Shravani Patil (IISc Bangalore). To appear at TCC 2026.</p>
+      </div>
+    </div>
+    <div class="talk-panel" id="tut-dc" hidden>
+      <div class="tp-byline">
+        <span class="tp-speaker">Debrup Chakraborty</span>
+        <span class="tp-affil">ISI Kolkata</span>
+      </div>
+      <p class="tp-tba">Abstract to be announced.</p>
+    </div>
+    <div class="talk-panel" id="tut-mn" hidden>
+      <div class="tp-byline">
+        <span class="tp-speaker">Mridul Nandi</span>
+        <span class="tp-affil">ISI Kolkata</span>
+      </div>
+      <p class="tp-tba">Abstract to be announced.</p>
     </div>
 
     <h3 class="speaker-group-title">Group Leaders</h3>
@@ -994,5 +1005,29 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var cards = Array.from(document.querySelectorAll('#tutorial-cards .tab-card'));
+  function activate(card){
+    cards.forEach(function(c){
+      c.classList.remove('tab-active');
+      c.setAttribute('aria-pressed','false');
+      var p = document.getElementById(c.dataset.panel);
+      if(p) p.hidden = true;
+    });
+    card.classList.add('tab-active');
+    card.setAttribute('aria-pressed','true');
+    var panel = document.getElementById(card.dataset.panel);
+    if(panel) panel.hidden = false;
+  }
+  cards.forEach(function(card){
+    card.addEventListener('click', function(){ activate(card); });
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activate(card); }
+    });
+  });
+  if(cards.length) activate(cards[0]);
+})();
+</script>
 </body>
 </html>
