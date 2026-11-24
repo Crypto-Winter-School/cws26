@@ -316,23 +316,46 @@
   }
   .speaker-card .affil{ font-size:12px; color:var(--ink-soft); margin:0; font-family:'IBM Plex Mono', monospace; }
 
-  .talk-details{
-    width:100%;
-    margin-top:14px;
+  .talk-list{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .talk-entry{
     border-top:1px solid var(--hairline);
-    padding-top:12px;
-    text-align:left;
+    padding:16px 0;
+  }
+  .talk-entry:last-child{ border-bottom:1px solid var(--hairline); }
+  .talk-entry-meta{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .talk-entry-meta .t-speaker{
+    font-family:'Fraunces', serif;
+    font-size:15px;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .talk-entry-meta .t-affil{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--ink-soft);
   }
   .talk-details summary{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    font-weight:600;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:14.5px;
+    font-weight:500;
     color:var(--ink);
     cursor:pointer;
     list-style:none;
     display:flex;
     align-items:flex-start;
-    gap:7px;
+    gap:9px;
     line-height:1.5;
   }
   .talk-details summary::-webkit-details-marker{ display:none; }
@@ -341,19 +364,20 @@
     font-size:7px;
     color:var(--brass);
     flex-shrink:0;
-    margin-top:3px;
+    margin-top:5px;
     transition:transform 0.15s;
   }
   .talk-details[open] summary::before{ transform:rotate(90deg); }
   .talk-abstract{
-    font-size:12.5px;
-    line-height:1.68;
+    font-size:13.5px;
+    line-height:1.7;
     color:var(--ink);
-    margin-top:10px;
-    padding-left:14px;
+    margin-top:12px;
+    padding-left:16px;
     border-left:2px solid var(--hairline);
+    max-width:72ch;
   }
-  .talk-abstract p{ margin:0 0 8px; }
+  .talk-abstract p{ margin:0 0 10px; }
   .talk-abstract p:last-child{ margin-bottom:0; }
 
   /* ---------- VENUE ---------- */
@@ -758,14 +782,6 @@
         <img src="images/committee/ashish-choudhury.jpg" alt="Ashish Choudhury" class="speaker-photo">
         <p class="name">Ashish Choudhury</p>
         <p class="affil">IIIT Bangalore</p>
-        <details class="talk-details">
-          <summary>Statistically Secure MPC with a Constant Overhead and Guaranteed Output Delivery</summary>
-          <div class="talk-abstract">
-            <p>We study the feasibility of constant communication-overhead statistically-secure MPC tolerating malicious adversaries in the synchronous setting and guaranteed output delivery (GOD). We propose a protocol with <em>n</em> = 3<em>t</em> + 1 for SIMD circuits with a communication overhead of O(1) and round complexity O(D) for circuit depth D, where <em>n</em> is the number of parties and <em>t</em> is the maximum number of corruptions. Moreover, our protocol achieves guaranteed output delivery (GOD). This is the first MPC protocol with the above characteristics.</p>
-            <p>Our first technical contribution is a verifiable secret sharing (VSS) protocol that achieves constant per-secret overhead via two-dimensional packing. Our second contribution is a constant-overhead degree-reduction protocol that converts a high-degree packed sharing into a lower-degree packed sharing.</p>
-            <p>Joint work with Ivan Damgård (Aarhus University) and Arpita Patra, Shravani Patil (IISc Bangalore). To appear at TCC 2026.</p>
-          </div>
-        </details>
       </div>
       <div class="speaker-card">
         <img src="images/committee/debrup-chakraborty.jpg" alt="Debrup Chakraborty" class="speaker-photo">
@@ -776,6 +792,22 @@
         <img src="images/committee/mridul-nandi.jpg" alt="Mridul Nandi" class="speaker-photo">
         <p class="name">Mridul Nandi</p>
         <p class="affil">ISI Kolkata</p>
+      </div>
+    </div>
+    <div class="talk-list">
+      <div class="talk-entry">
+        <div class="talk-entry-meta">
+          <span class="t-speaker">Ashish Choudhury</span>
+          <span class="t-affil">IIIT Bangalore</span>
+        </div>
+        <details class="talk-details">
+          <summary>Statistically Secure MPC with a Constant Overhead and Guaranteed Output Delivery</summary>
+          <div class="talk-abstract">
+            <p>We study the feasibility of constant communication-overhead statistically-secure MPC tolerating malicious adversaries in the synchronous setting and guaranteed output delivery (GOD). We propose a protocol with <em>n</em> = 3<em>t</em> + 1 for SIMD circuits with a communication overhead of O(1) and round complexity O(D) for circuit depth D, where <em>n</em> is the number of parties and <em>t</em> is the maximum number of corruptions. This is the first MPC protocol with the above characteristics.</p>
+            <p>Our first technical contribution is a verifiable secret sharing (VSS) protocol that achieves constant per-secret overhead via two-dimensional packing. Our second contribution is a constant-overhead degree-reduction protocol that converts a high-degree packed sharing into a lower-degree packed sharing.</p>
+            <p>Joint work with Ivan Damgård (Aarhus University) and Arpita Patra, Shravani Patil (IISc Bangalore). To appear at TCC 2026.</p>
+          </div>
+        </details>
       </div>
     </div>
 
